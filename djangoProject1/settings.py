@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'account',
     'products',
     'django_render_partial',
-    # 'pillow'
+    'polls'
 
 ]
 

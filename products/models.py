@@ -6,8 +6,6 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Product(models.Model):
-    class text_sale_choises(models.TextChoices):
-        product_sale = "sale_product", 'محصول تخفیف دارد'
     image = models.ImageField(upload_to="products/images")
     name = models.CharField(max_length=100, db_index=True, verbose_name='عنوان')
     price = models.FloatField(verbose_name="قیمت")
@@ -17,7 +15,7 @@ class Product(models.Model):
     is_deleted = models.BooleanField(default=False, verbose_name="حذف شده/حذف نشده")
     # brans = models.ForeignKey(None, db_index=True, on_delete=models.CASCADE)
     # category_product = models.ManyToManyField(None, db_index=True)
-    is_sale = models.CharField(db_index=True,max_length=300,choices=text_sale_choises.choices)
+    is_sale = models.CharField(null=True,default=False)
     sale_price = models.DecimalField(verbose_name="درصد تخفیف", default=0,max_digits=3, decimal_places=2)
     slug = models.SlugField(default='', null=False, blank=True, max_length=200, unique=True,
                             verbose_name='عنوان در url')
