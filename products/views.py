@@ -38,5 +38,5 @@ class productDetailView(CacheListViewMixin, DetailView):
         id_product = self.object.id
         context = super().get_context_data(**kwargs)
         context['gallery'] = product_galry.objects.filter(product_gallery_id=id_product, is_active=True,
-                                                          is_deleted=False)
+                                                          is_deleted=False,)
         return context

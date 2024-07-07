@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product, product_galry
+from .models import Product, product_galry, category
 
 
 # Register your models here.
@@ -8,6 +8,12 @@ from .models import Product, product_galry
 class ModelNameAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(product_galry)
 class admin_gallry(admin.ModelAdmin):
+    pass
+
+
+@admin.register(category)
+class admin_category(admin.ModelAdmin):
     pass

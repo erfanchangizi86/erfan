@@ -5,6 +5,6 @@ from .models import Product  # مدل خود را وارد کنید
 
 
 @receiver(post_save, sender=Product)
-# @receiver(post_delete, sender=Product)
+@receiver(post_delete, sender=Product)
 def clear_cache(sender, instance, **kwargs):
     cache.clear()
