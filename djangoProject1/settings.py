@@ -35,10 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'account',
     'products',
     'django_render_partial',
-    'polls'
+    'polls',
+    'sorl.thumbnail'
 
 ]
 
@@ -130,3 +132,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'update'
 MEDIA_URL = '/medias/'
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'd:/project_erfan_django/djangoproject1/cache',  # مسیر پوشه‌ای که کش در آن ذخیره می‌شود
+    }
+}

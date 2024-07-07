@@ -1,4 +1,5 @@
 {% extends 'shard/base.html' %}
+{% load thumbnail %}
 {% load poll_extras %}
 {% block contend %}
     <section class="">
@@ -495,9 +496,13 @@
                                 <section class="product">
                                     <section class="product-add-to-cart"><a href="#" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="افزودن به سبد خرید"><i class="fa fa-cart-plus"></i></a></section>
                                     <section class="product-add-to-favorite"><a href="#" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="افزودن به علاقه مندی"><i class="fa fa-heart"></i></a></section>
-                                    <a class="product-link" href="{{ product.get_absolute_url }}">
+                                    <a class="product-link" href="{% url 'products_detail' slug=product.slug %}">
                                         <section class="product-image">
-                                            <img class="" src="{{ product.image.url }}" alt="">
+                                            {% if product.image %}
+                                        {% thumbnail product.image "200x200" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" >
+                                        {% endthumbnail %}
+                                        {% endif %}
                                         </section>
                                         <section class="product-colors"></section>
                                         <section class="product-name"><h3>{{ product.short_body }}</h3></section>
