@@ -8,7 +8,8 @@ from products.models import category
 
 
 def header(request):
-    categories: category = category.objects.filter(is_active=True,title_category__category=None).prefetch_related('category_set')
+    categories: category = category.objects.filter(is_active=True).prefetch_related('category_set')
+
     context = {'categories': categories}
     return render(request,'shard/header.html',context)
 

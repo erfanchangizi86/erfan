@@ -1,0 +1,13 @@
+ 
+{% for i in  subcate_gories %}
+    <section class="sidebar-nav-sub-item">
+                                        <span class="sidebar-nav-sub-item-title"><a href="{% url 'products_filter' cate_gory=i.url_name %}">{{ i.name }}</a>{% if i.subcategories %}
+                                        	<i class="fa fa-angle-left"></i>{% endif %} </span>
+                                        <section class="sidebar-nav-sub-sub-wrapper">
+                                               {% if i.subcategories %}
+                                                {% include 'subcategory_template.html' with subcate_gories=i.subcategories %}
+                                                    {% endif %} 
+{#                                            <section class="sidebar-nav-sub-sub-item"><a href="#">هندزفری</a></section>#}
+                                        </section>
+                                    </section>
+{% endfor %}

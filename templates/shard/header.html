@@ -99,81 +99,70 @@
                             </section>
                             <section class="sublist-wrapper position-absolute w-100">
                                 <section class="position-relative sublist-area">
-                                    {% for category in categories %}
-                                    	  <section class="sublist-item">
-                                        <section class="sublist-item-toggle">{{ category.title}}</section>
-                                        <section class="sublist-item-sublist">
-                                            <section class="sublist-item-sublist-wrapper d-flex justify-content-around align-items-center">
-                                                <section class="sublist-column col">
-                                                     
-                                                    <a href="#" class="sub-category">لوازم جانبی موبایل</a>
-                                                    <a href="#" class="sub-sub-category">اسپیکر موبایل</a>
-                                                    <a href="#" class="sub-sub-category">پاور بانک</a>
-                                                    <a href="#" class="sub-sub-category">قاب موبایل</a>
-                                                    <a href="#" class="sub-sub-category">هولدر نگهدارنده</a>
-                                                    <a href="#" class="sub-sub-category">شارژر بیسیم</a>
-                                                    <a href="#" class="sub-sub-category">انواع شارژر</a>
-                                                    <a href="#" class="sub-category">گوشی موبایل</a>
-                                                    <a href="#" class="sub-sub-category">سامسونگ</a>
-                                                    <a href="#" class="sub-sub-category">هوآوی</a>
-                                                    <a href="#" class="sub-sub-category">اپل</a>
-                                                    <a href="#" class="sub-sub-category">آنر</a>
-                                                    <a href="#" class="sub-sub-category">نوکیا</a>
-                                                    <a href="#" class="sub-category">واقعیت مجازی</a>
-                                                    <a href="#" class="sub-category">مچ بند هوشمند</a>
-                                                </section>
-
-                                                <section class="sublist-column col">
-                                                    <a href="#" class="sub-category">هدفون، هدست، هندزفری</a>
-                                                    <a href="#" class="sub-category">اسپیکر، بلوتوث و باسیم</a>
-                                                    <a href="#" class="sub-category">هارد، فلش و SSD</a>
-                                                    <a href="#" class="sub-category">دوربین</a>
-                                                    <a href="#" class="sub-sub-category">دوربین عکاسی دیجیتال</a>
-                                                    <a href="#" class="sub-sub-category">دوربین ورزشی و فیلم برداری</a>
-                                                    <a href="#" class="sub-sub-category">دوربین چاپ سریع</a>
-                                                    <a href="#" class="sub-category">لوازم جانبی دوربین</a>
-                                                    <a href="#" class="sub-sub-category">لنز</a>
-                                                    <a href="#" class="sub-sub-category">کیف</a>
-                                                    <a href="#" class="sub-sub-category">کارت حافظه</a>
-                                                    <a href="#" class="sub-sub-category">کاغذ چاپ عکس</a>
-                                                    <a href="#" class="sub-category">دوربین دو چشم وشکاری</a>
-                                                </section>
-
-                                                <section class="sublist-column col">
-                                                    <a href="#" class="sub-category">تلسکوپ</a>
-                                                    <a href="#" class="sub-category">پلی استیشن، ایکس باکس و بازی</a>
-                                                    <a href="#" class="sub-category">کامپیوتر و تجهیزات جانبی</a>
-                                                    <a href="#" class="sub-sub-category">تجهیزات مخصوی بازی</a>
-                                                    <a href="#" class="sub-sub-category">مانیتور</a>
-                                                    <a href="#" class="sub-sub-category">کیس های اسمبل شده</a>
-                                                    <a href="#" class="sub-sub-category">قطعات داخلی کامپیوتر</a>
-                                                    <a href="#" class="sub-sub-category">ماوس</a>
-                                                    <a href="#" class="sub-sub-category">کیبورد</a>
-                                                    <a href="#" class="sub-category">لپ تاپ</a>
-                                                    <a href="#" class="sub-category">لوازم جانبی لپ تاپ</a>
-                                                    <a href="#" class="sub-sub-category">کیف، کوله و کاور</a>
-                                                    <a href="#" class="sub-sub-category">کابل صدا، AUX و HDMI</a>
-                                                </section>
-
-                                                <section class="sublist-column col">
-                                                    <a href="#" class="sub-category">تبلت</a>
-                                                    <a href="#" class="sub-category">شارژر تبلت و موبایل</a>
-                                                    <a href="#" class="sub-category">کیف، کاور و لوازم جانبی تبلت</a>
-                                                    <a href="#" class="sub-category">باتری</a>
-                                                    <a href="#" class="sub-category">دوربین های تحت شبکه</a>
-                                                    <a href="#" class="sub-category">مودم و تجهیزات شبکه</a>
-                                                    <a href="#" class="sub-category">ماشین های اداری</a>
-                                                    <a href="#" class="sub-sub-category">تلفن، بیسیم و سانترال</a>
-                                                    <a href="#" class="sub-sub-category">فکس</a>
-                                                    <a href="#" class="sub-sub-category">پرینتر</a>
-                                                    <a href="#" class="sub-sub-category">لوازم جانبی اداری</a>
-                                                    <a href="#" class="sub-category">کتابخوان فیدیبوک</a>
-                                                    <a href="#" class="sub-category">کارت هدیه</a>
-                                                </section>
-                                            </section>
-                                        </section>
-                                    </section>
-                                    {% endfor %}
+{#                                    {% for category in categories %}#}
+{#                                    	  <section class="sublist-item">#}
+{#                                        <section class="sublist-item-toggle">{{ category.title}}</section>#}
+{#                                        <section class="sublist-item-sublist">#}
+{#                                            <section class="sublist-item-sublist-wrapper d-flex justify-content-around align-items-center">#}
+{#                                                <section class="sublist-column col">#}
+{#                                                     {% if category.category_set.all %}#}
+{#                                                         {% for foo in category.category_set.all %}#}
+{#                                                         	   <a href="" class="sub-category">{{ foo.title }}</a>#}
+{#                                                         {% endfor %}#}
+{#                                                     {% endif %}#}
+{#                                                </section>#}
+{##}
+{#                                                <section class="sublist-column col">#}
+{#                                                    <a href="#" class="sub-category">هدفون، هدست، هندزفری</a>#}
+{#                                                    <a href="#" class="sub-category">اسپیکر، بلوتوث و باسیم</a>#}
+{#                                                    <a href="#" class="sub-category">هارد، فلش و SSD</a>#}
+{#                                                    <a href="#" class="sub-category">دوربین</a>#}
+{#                                                    <a href="#" class="sub-sub-category">دوربین عکاسی دیجیتال</a>#}
+{#                                                    <a href="#" class="sub-sub-category">دوربین ورزشی و فیلم برداری</a>#}
+{#                                                    <a href="#" class="sub-sub-category">دوربین چاپ سریع</a>#}
+{#                                                    <a href="#" class="sub-category">لوازم جانبی دوربین</a>#}
+{#                                                    <a href="#" class="sub-sub-category">لنز</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کیف</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کارت حافظه</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کاغذ چاپ عکس</a>#}
+{#                                                    <a href="#" class="sub-category">دوربین دو چشم وشکاری</a>#}
+{#                                                </section>#}
+{##}
+{#                                                <section class="sublist-column col">#}
+{#                                                    <a href="#" class="sub-category">تلسکوپ</a>#}
+{#                                                    <a href="#" class="sub-category">پلی استیشن، ایکس باکس و بازی</a>#}
+{#                                                    <a href="#" class="sub-category">کامپیوتر و تجهیزات جانبی</a>#}
+{#                                                    <a href="#" class="sub-sub-category">تجهیزات مخصوی بازی</a>#}
+{#                                                    <a href="#" class="sub-sub-category">مانیتور</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کیس های اسمبل شده</a>#}
+{#                                                    <a href="#" class="sub-sub-category">قطعات داخلی کامپیوتر</a>#}
+{#                                                    <a href="#" class="sub-sub-category">ماوس</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کیبورد</a>#}
+{#                                                    <a href="#" class="sub-category">لپ تاپ</a>#}
+{#                                                    <a href="#" class="sub-category">لوازم جانبی لپ تاپ</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کیف، کوله و کاور</a>#}
+{#                                                    <a href="#" class="sub-sub-category">کابل صدا، AUX و HDMI</a>#}
+{#                                                </section>#}
+{##}
+{#                                                <section class="sublist-column col">#}
+{#                                                    <a href="#" class="sub-category">تبلت</a>#}
+{#                                                    <a href="#" class="sub-category">شارژر تبلت و موبایل</a>#}
+{#                                                    <a href="#" class="sub-category">کیف، کاور و لوازم جانبی تبلت</a>#}
+{#                                                    <a href="#" class="sub-category">باتری</a>#}
+{#                                                    <a href="#" class="sub-category">دوربین های تحت شبکه</a>#}
+{#                                                    <a href="#" class="sub-category">مودم و تجهیزات شبکه</a>#}
+{#                                                    <a href="#" class="sub-category">ماشین های اداری</a>#}
+{#                                                    <a href="#" class="sub-sub-category">تلفن، بیسیم و سانترال</a>#}
+{#                                                    <a href="#" class="sub-sub-category">فکس</a>#}
+{#                                                    <a href="#" class="sub-sub-category">پرینتر</a>#}
+{#                                                    <a href="#" class="sub-sub-category">لوازم جانبی اداری</a>#}
+{#                                                    <a href="#" class="sub-category">کتابخوان فیدیبوک</a>#}
+{#                                                    <a href="#" class="sub-category">کارت هدیه</a>#}
+{#                                                </section>#}
+{#                                            </section>#}
+{#                                        </section>#}
+{#                                    </section>#}
+{#                                    {% endfor %}#}
                                     
                                   
                                     
