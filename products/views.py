@@ -1,11 +1,11 @@
 from functools import wraps
-
+from .forms import BrandForm
 from django.core.cache import cache
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView
 from django.contrib.postgres.search import SearchVector
-from products.models import Product, product_galry, category
+from products.models import Product, product_galry, category, Brands
 
 from django.views.generic import ListView
 from django.core.cache import cache
@@ -21,7 +21,7 @@ def get_subcategories(catego_ry):
         subcategories_data.append({
             'id': subcategory.id,
             'name': subcategory.title,
-            'url_name':subcategory.url_name,
+            'url_name': subcategory.url_name,
             'subcategories': get_subcategories(subcategory)
         })
 
@@ -43,29 +43,36 @@ def get_all_categories():
     return data
 
 
-
-
-
 class ProductListView(ListView):
     model = Product
     template_name = 'product/product_list.html'
     context_object_name = 'products'
     ordering = ['-id']
-    paginate_by = 4
+    paginate_by = 1
 
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = queryset.filter(is_active=True)
-        # Product.objects.annotate(search=SearchVector('name', 'body','short_body')).filter(search="")
+        searches = self.request.GET.get('searches', '')
+        if searches is not None and len(searches) > 0:
+            queryset = Product.objects.annotate(search=SearchVector('name', 'short_body', 'body')).filter(
+                search__contains=searches)
         categories = self.kwargs.get('cate_gory')
         if categories:
             queryset = queryset.filter(category_product__url_name__iexact=categories)
+
+        self.forms = BrandForm(self.request.GET or None)
+        if self.forms.is_valid():
+            brandes = self.forms.cleaned_data['brand_name']
+            queryset = queryset.filter(brand__in=brandes)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         cate: category = category.objects.filter(is_active=True, is_deleted=False)
         context['categories'] = get_all_categories()
+        context['brands'] = Brands.objects.filter(is_active=True).order_by('title_english')
+        context['form'] = self.forms
         return context
 
 

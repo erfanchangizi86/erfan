@@ -44,62 +44,15 @@
                         </section>
 
                         <section class="sidebar-brand-wrapper">
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="1" id="1">
-                                <label class="form-check-label d-flex justify-content-between" for="1">
-                                    <span>شیائومی</span>
-                                    <span>xiaomi</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="2" id="2">
-                                <label class="form-check-label d-flex justify-content-between" for="2">
-                                    <span>سامسونگ</span>
-                                    <span>samsung</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="3" id="3">
-                                <label class="form-check-label d-flex justify-content-between" for="3">
-                                    <span>سونی</span>
-                                    <span>sony</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="4" id="4">
-                                <label class="form-check-label d-flex justify-content-between" for="4">
-                                    <span>امرسان</span>
-                                    <span>emersun</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="5" id="5">
-                                <label class="form-check-label d-flex justify-content-between" for="5">
-                                    <span>ال جی</span>
-                                    <span>lg</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="6" id="6">
-                                <label class="form-check-label d-flex justify-content-between" for="6">
-                                    <span>جی پلاس</span>
-                                    <span>g+</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="7" id="7">
-                                <label class="form-check-label d-flex justify-content-between" for="7">
-                                    <span>پارس خزر</span>
-                                    <span>pars khazar</span>
-                                </label>
-                            </section>
-                            <section class="form-check sidebar-brand-item">
-                                <input class="form-check-input" type="checkbox" value="8" id="8">
-                                <label class="form-check-label d-flex justify-content-between" for="8">
-                                    <span>دیاموند</span>
-                                    <span>diamond</span>
-                                </label>
-                            </section>
+                            <form method="get">
+                        	{{ form.brand_name}}
+                        </form>
+                            <button class="btn btn-danger" onclick="filters({{ form.data.brand_name }})">اعمال فیلتر</button>
+                            <form method="get" id="formss">
+                                <input type="hidden" name="page" id="pa_ge" value="{{ page_obj.number }}">
+                                <input type="hidden" name="brand_name" id="brands" value="">
+                            </form>
+                  
                         </section>
                     </section>
 
@@ -126,7 +79,7 @@
 
                     <section class="content-wrapper bg-white p-3 rounded-2 mb-3">
                         <section class="sidebar-filter-btn d-grid gap-2">
-                            <button class="btn btn-danger" type="button">اعمال فیلتر</button>
+                            <button class="btn btn-danger" >اعمال فیلتر</button>
                         </section>
                     </section>
 
@@ -185,19 +138,19 @@
                                           
                                             {% if page_obj.has_previous %}
                                             	<li class="page-item">
-                                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                                <a class="page-link" onclick="page({{ page_obj.previous_page_number }})" aria-label="Previous">
                                                     <span aria-hidden="true">«</span>
                                                 </a>
                                             </li>
                                             {% endif %} 
                                             
                                               {% for foo in paginator.page_range %}
-                                            	<li class="page-item"><a class="page-link" href="?page={{ foo }}">{{ foo }}</a></li>
+                                            	<li class="page-item"><a class="page-link" onclick="page({{ foo }})">{{ foo }}</a></li>
                                             {% endfor %}
                                             
                                       {% if page_obj.has_next %}
                                       	     <li class="page-item">
-                                                <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                                <a class="page-link" onclick="page({{ page_obj.next_page_number }})" aria-label="Next">
                                                     <span aria-hidden="true">»</span>
                                                 </a>
                                             </li>
