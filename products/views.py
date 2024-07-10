@@ -1,4 +1,8 @@
 from functools import wraps
+
+from django.core.paginator import Paginator
+from django.db.models import F
+
 from .forms import BrandForm
 from django.core.cache import cache
 from django.shortcuts import render
@@ -9,7 +13,7 @@ from products.models import Product, product_galry, category, Brands
 
 from django.views.generic import ListView
 from django.core.cache import cache
-
+from django.views.decorators.http import require_http_methods
 from utils.mixins import CacheListViewMixin
 
 
@@ -87,3 +91,22 @@ class productDetailView(CacheListViewMixin, DetailView):
         context['gallery'] = product_galry.objects.filter(product_gallery_id=id_product, is_active=True,
                                                           is_deleted=False, )
         return context
+
+
+@require_http_methods(['GET', 'POST'])
+def test(request):
+    '''این دکاریتور برای اینکه نشان دهیم درخاست از چه نوعی است.'''
+
+
+def listing(request):
+    """
+    صفحه بندی در فانکشن ها به این صورت است
+    :param request:
+    :return:
+    """
+    contact_list = Product.objects.filter(price__lt=F('sale_price')).order_by(F('price').desc(nulls_last=True))
+    paginator = Paginator(contact_list, 25) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, '', {'page_obj': page_obj})
